@@ -1,0 +1,37 @@
+# menambahkan data dan input nilai mahasiswa 
+
+# Membuat list kosong untuk menyimpan data mahasiswa
+data_mahasiswa = []
+
+while True:
+    print("\n=== Input Data Mahasiswa ===")
+    Nama = input("Nama mahasiswa: ")
+    Nim = input("masukkan nim: ")
+    Tugas = float(input("Nilai Tugas (30%): "))
+    Uts = float(input("Nilai UTS (35%): "))
+    Uas = float(input("Nilai UAS (35%): "))
+
+    # Hitung nilai akhir
+    nilai_akhir = (tugas * 0.30) + (uts * 0.35) + (uas * 0.35)
+
+    # Simpan data ke dalam list sebagai dictionary
+    data_mahasiswa.append({
+        "nama": nama,
+        "tugas": tugas,
+        "uts": uts,
+        "uas": uas,
+        "nilai Akhir": nilai_akhir
+    })
+
+    # Tanya apakah ingin menambah data lagi
+    tambah = input("\nTambah data lagi? (y/t): ").lower()
+    if tambah == "t":
+        break
+
+# Tampilkan seluruh data
+print("\n=== Daftar Nilai Mahasiswa ===")
+print("No  Nama\t\tTugas\tUTS\tUAS\tNilai Akhir")
+print("-"*50)
+
+for i, mhs in enumerate(data_mahasiswa, start=1):
+    print(f"{i}. {mhs['Nama']}\t\t{mhs['Tugas']}\t{mhs['UTS']}\t{mhs['UAS']}\t{mhs['Nilai Akhir']:.2f}")
